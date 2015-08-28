@@ -8,5 +8,4 @@ describe(Venue) do
       new_venue = Venue.new({name: ""})
       expect(new_venue.save()). to eq(false)
     end
-
 end
