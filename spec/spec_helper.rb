@@ -13,5 +13,3 @@ require('capybara/rspec')
 Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 require('./app')
-
-Configure.each do |config|
