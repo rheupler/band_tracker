@@ -1,0 +1,32 @@
+.jumbotron {
+  height: 50%;
+  width: 100%;
+}
+
+#index {
+  text-shadow: 2px 2px black;
+}
+
+.index {
+  /*position: absolute;*/
+  text-align: center;
+  top: 100px;
+}
+
+.welcome {
+  background-image: url("/img/band.jpg");
+  background-position: center;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, 0);
+  color: white;
+}
+
+.ryan-title {
+  text-align: center;
+}
+
+body {
+  background-color: #AEC6C6;
+}

@@ -1,0 +1,42 @@
+<h1>Add a band:</h1>
+
+<br>
+<table class="table table-hover">
+  <tr>
+    <th>
+      Band
+    </th>
+  </tr>
+  <% @bands.each do |band| %>
+  <tr>
+    <td>
+      <a href="/bands/<%= band.id %>"><%= band.name %></a>
+    </td>
+    <td>
+      <form action="/bands/<%= band.id %>/update" method="post"></a>
+        <input type="hidden" name="_method" value="patch">
+        <input type="text" name="band_name" value="">
+        <button class="btn btn-default" name="submit">Update Name</button>
+      </form>
+    </td>
+    <td>
+     <form action="/bands/<%= band.id %>" method="post">
+       <input type="hidden" name="_method" value="delete">
+       <button class="btn btn-danger" type="submit">Delete</button>
+     </form>
+   </td>
+  </tr>
+  <% end %>
+</table>
+
+<form action="/bands" method="post">
+  <label for="band">Band Name:</label>
+  <input id ="band_name" class="form-control" name="band_name" type="text">
+  <br>
+  <button class="btn btn-info" type="submit">Add the band</button>
+</form>
+<br>
+<a class="btn btn-info" href='/'>Home</a>
+<br>
+
+<br><br>

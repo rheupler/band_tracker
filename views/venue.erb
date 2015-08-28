@@ -1,0 +1,46 @@
+<h1>Add a venue:</h1>
+
+<br>
+<table class="table table-hover">
+  <tr>
+    <th>
+      Band
+    </th>
+  </tr>
+  <% @venues.each do |venue| %>
+  <tr>
+    <td>
+      <h4><%= venue.name %></h4>
+    </td>
+    <td>
+  <form action="/venues/<%= venue.id %>/update" method="post"></a>
+    <input type="hidden" name="_method" value="patch">
+    <input type="text" name="venue_name" value="">
+    <button class="btn btn-default" name="submit">Update Name</button>
+  </form>
+
+    </td>
+    <td>
+     <form action="/venues/<%= venue.id %>" method="post">
+       <input type="hidden" name="_method" value="delete">
+       <button class="btn btn-danger" type="submit">Delete</button>
+     </form>
+   </td>
+  </tr>
+  <% end %>
+</table>
+
+<form action="/venues" method="post">
+  <label for="venue">Venue Name:</label>
+  <input id ="venue_name" class="form-control" name="venue_name" type="text">
+  <br>
+  <button class="btn btn-info" type="submit">Add the venue</button>
+</form>
+<br>
+<a class="btn btn-info" href="/bands">Go to bands</a>
+<br>
+<br>
+<a class="btn btn-info" href='/'>Home</a>
+<br>
+
+<br><br>
