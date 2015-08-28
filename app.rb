@@ -31,13 +31,17 @@ delete '/bands/:id' do
   erb(:bands)
 end
 
-patch '/bands/:id/update' do
-  id = params.fetch('id')
-  @band = Band.find(id)
-  band_name = params.fetch('band_name', @band.name)
-  @band.update({name: band_name})
+
+patch("/bands/:id") do
   @bands = Band.all()
-  erb(:bands)
+  band_id = params.fetch("id").to_i()
+  @band = Band.find(band_id)
+  venue_id = params.fetch("venue_id")
+  new_venue = Venue.find(venue_id)
+  @band.venues().push(new_venue)
+  @venues = Venue.all()
+  url = "/bands/" + params.fetch("id")
+  redirect(url)
 end
 
 
